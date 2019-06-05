@@ -1,0 +1,223 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: all 1s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+}
+
+@font-face {
+  font-family: "Creepy";
+  src: url("Assets/Fonts/Creepy.woff") format("woff"),
+    url("Assets/Fonts/Creepy.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Lunacy";
+  src: url("Assets/Fonts/Lunacy.woff") format("woff"),
+    url("Assets/Fonts/Lunacy.woff2") format("woff2");
+}
+
+
+body{
+  background: linear-gradient(45deg, #000000, #ff8040);
+  position: relative;
+  font-family: Lunacy;
+}
+.container1
+{
+  margin: auto;
+  width: 60%;
+  color: #fff;
+  font-size: 40px;
+
+}
+.all-card
+{
+   height: 225px;
+   width: 23%;
+   overflow: hidden;
+   border-radius:10px;
+   position: relative;
+   -webkit-border-radius:10px;
+   -moz-border-radius:10px;
+   -ms-border-radius:10px;
+   -o-border-radius:10px;
+   display: flex;
+   justify-content: center;
+   margin: auto 8px;
+}
+
+
+.card-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #c25b0f;
+  cursor: url("Assets/Cursors/GhostHover.cur"),auto;
+}
+
+.card-back
+{
+    background-color: #333;
+    transform: translate(1);
+    -webkit-transform: rotateY(0);
+}
+
+ 
+.card-front {
+  background-color: #ffbb89;
+  border: 1px solid #c25b0f;
+  transform: rotateY(180deg);
+  transform: translate(0);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+}
+
+.card-back img{
+ width: 27%
+}
+
+.top-left
+{
+ position: absolute;
+ top: 0;
+ left: 0;
+ transform:rotate(-90deg) ;
+ -webkit-transform:rotate(-90deg) ;
+ -moz-transform:rotate(-90deg) ;
+ -ms-transform:rotate(-90deg) ;
+ -o-transform:rotate(-90deg) ;
+}
+.top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+  -moz-transform:rotate(180deg);
+  -ms-transform:rotate(180deg);
+  -o-transform:rotate(180deg);
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform:rotate(90deg);
+}
+.middle-Spider , .middle-ghost
+{
+  position: absolute;
+  bottom: 65px;
+  right: -25px;
+  width: 60% !important;
+  transform: translate(-50%) ;
+  -webkit-transform:;
+  -moz-transform:;
+  -ms-transform:;
+  -o-transform:;
+}
+.all-card:hover .middle-Spider {
+  bottom: 57px;
+}
+.all-card:hover  img{
+  width: 30%
+}
+.dance
+{
+   animation: mymove 1s linear infinite ;
+   -webkit-animation: mymove 1s linear infinite ;
+   right: 34px;
+
+}
+@keyframes mymove
+{
+  0%,100% {
+    transform: rotate(0)
+  }
+
+  25% {
+    transform: rotate(-30deg)
+  }
+
+  75% {
+    transform: rotate(30deg)
+  }
+}
+
+/************* overlay ************/
+.overlay1 , .overlay2, .overlay3 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(26, 11, 0, .6);
+  text-align: center;
+  font-size: 90px;
+  z-index: 5;
+  padding-top: 20%;
+  cursor: pointer;
+  font-family: Creepy,serif;
+  color: #ff6d00;
+  text-transform: uppercase;
+}
+.overlay1{
+  display: none;
+}
+
+.overlay2 a , .overlay3 a {
+ font-size: 50px;
+}
+.overlay2 a:hover , .overlay3 a:hover {
+  text-decoration: none;
+}
+.overlay
+{
+  display: block;
+}
+.overlay2 {
+  display: none;
+}
+
+.overlay3 {
+  display: none;
+}
+
+
+
+
+
+
+.visible .card-back {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+}
+
+.visible .card-front {
+  transform: rotateY(0);
+  -webkit-transform: rotateY(0);
+  -moz-transform: rotateY(0);
+  -ms-transform: rotateY(0);
+  -o-transform: rotateY(0);
+}
+
