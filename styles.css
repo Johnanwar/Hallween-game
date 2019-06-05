@@ -137,7 +137,7 @@ body{
 .all-card:hover  img{
   width: 30%
 }
-.dance
+.card-front.dance
 {
    animation: mymove 1s linear infinite ;
    -webkit-animation: mymove 1s linear infinite ;
