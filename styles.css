@@ -27,18 +27,18 @@ body{
   position: relative;
   font-family: Lunacy;
 }
-.container1
+.container
 {
-  margin: auto;
-  width: 60%;
+ 
   color: #fff;
   font-size: 40px;
+  max-width:868px!important;
 
 }
 .all-card
 {
    height: 225px;
-   width: 23%;
+   /* width: 23%; */
    overflow: hidden;
    border-radius:10px;
    position: relative;
