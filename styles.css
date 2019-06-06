@@ -137,18 +137,23 @@ body{
 .all-card:hover  img{
   width: 30%
 }
-.card-front.dance
-{
-   animation: mymove 1s linear infinite ;
-   -webkit-animation: mymove 1s linear infinite ;
-   right: 34px;
 
+.dance .card-front .middle-ghost
+{
+   animation: mymove 1s linear infinite;
+   -webkit-animation: mymove 1s linear infinite;
+   transition-delay: 1s;
 }
 @keyframes mymove
 {
   0%,100% {
-    transform: rotate(0)
-  }
+       transform:rotate(0);
+       -webkit-transform:rotate(0);
+       -moz-transform:rotate(0);
+       -ms-transform:rotate(0);
+       -o-transform:rotate(0);
+      right: 34px;
+}
 
   25% {
     transform: rotate(-30deg)
@@ -159,46 +164,41 @@ body{
   }
 }
 
-/************* overlay ************/
-.overlay1 , .overlay2, .overlay3 {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(26, 11, 0, .6);
-  text-align: center;
-  font-size: 90px;
-  z-index: 5;
-  padding-top: 20%;
-  cursor: pointer;
-  font-family: Creepy,serif;
-  color: #ff6d00;
-  text-transform: uppercase;
-}
-.overlay1{
-  display: none;
-}
+  /************* overlay ************/
+  .overlay1 , .overlay2, .overlay3 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(26, 11, 0, .6);
+    text-align: center;
+    font-size: 90px;
+    z-index: 5;
+    padding-top: 20%;
+    cursor: pointer;
+    font-family: Creepy,serif;
+    color: #ff6d00;
+    text-transform: uppercase;
+  }
+  .overlay1{
+    display: none;
+  }
+  .overlay
+  {
+    display: block;
+  }
+ 
+  .overlay2 {
+    display: none;
+  }
 
-.overlay2 a , .overlay3 a {
- font-size: 50px;
-}
-.overlay2 a:hover , .overlay3 a:hover {
-  text-decoration: none;
-}
-.overlay
-{
-  display: block;
-}
-.overlay2 {
-  display: none;
-}
-
-.overlay3 {
-  display: none;
-}
+  .overlay3 {
+    display: none;
+  }
+ 
 
 
 

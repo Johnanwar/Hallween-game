@@ -49,11 +49,13 @@ class GameCotroller {
     this.timeRemaning = totalTime ;
     this.flibs = document.querySelector('.flips');
     this.time = document.querySelector('.time');
-    this.allFlibs = 0;
     this.audiCcontoller = new AudiCcontoller;
+    this.suffleCards(this.cardsArray);
+
   };
 
   startGame (){
+   this.allFlibs = 0;
     this.cardToCheck = null;
     this.matchCards = [];
     this.timeRemaning = this.totalTime
@@ -62,17 +64,17 @@ class GameCotroller {
 
     // to restrt the game 
     setTimeout(() => {
-      this.suffleCards(this.cardsArray);
       this.audiCcontoller.startMusic();
       this.pusy = false;
       this.countDown = this.StartCountDown();
+
     },500)
 
-    // this.hideCards() {
-    //   this.time.textContent = this.timeRemaning;
-    //   this.flibs.textContent = this.allFlibs;
-    // };
+    this.hideCards() 
+      this.time.textContent = this.timeRemaning;
+      this.flibs.textContent = this.allFlibs;
   };
+  
   hideCards(){
     this.cardsArray.forEach( (card)=>{
       card.classList.remove('visible');
@@ -83,7 +85,7 @@ class GameCotroller {
 
   // click on cards
   flibCard(card){
-    if (this.canFlibGamme(card) === true) { 
+    if (this.canFlibGame(card)) { 
       this.audiCcontoller.flib(); 
       this.allFlibs ++;
       this.flibs.textContent = this.allFlibs;
@@ -100,23 +102,28 @@ class GameCotroller {
 
   /// match cards
   checkForCarMatch(card) {
-    if (this.getCardType(card) === this.getCardType(this.cardToCheck) ){
+    if (this.getCardType(card) === this.getCardType(this.cardToCheck) )
       //match
-      this.cardMatch(card, this.cardToCheck);
-    }else{
+      this.cardMatch(card , this.cardToCheck);
+    else
       //didnt match
       this.cardMisMatch(card , this.cardToCheck)
       this.cardToCheck = null;
-    };
+    
+
+  };
+
+  canFlibGame(card) {
+    return !this.busy && !this.matchCards.includes(card) && card !== this.cardToCheck;
 
   };
       //match
-  cardMatch(card1 , card2){
+  cardMatch(card1,card2){
     this.matchCards.push(card1);
     this.matchCards.push(card2);
+    this.audiCcontoller.matchMusic();
     card1.classList.add('dance');
     card2.classList.add('dance');
-    this.audiCcontoller.matchMusic();
     if (this.matchCards.length === this.cardsArray.length)
       this.victory();
 
@@ -161,10 +168,7 @@ class GameCotroller {
     document.querySelector('.overlay2').style.display = "block"
   };
     // flib game
-    canFlibGamme(card){
-    // this.!pusy ..... !this.matchCards include (card) ...... card !===this.cardCheck
-    return true;;
-  };
+ 
 
   //Random shufle cards
   suffleCards(cardsArray) {
@@ -193,7 +197,7 @@ var ready = function(){
 
     cards = document.querySelectorAll(".all-card");
     overlay = document.querySelectorAll(".overlay");
-    game = new GameCotroller(60 , cards) ;
+    game = new GameCotroller(80 , cards) ;
 
     // overlay function
       overlay.forEach ((over) => over.addEventListener('click', function(){
